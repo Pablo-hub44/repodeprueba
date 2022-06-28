@@ -71,4 +71,14 @@ forma2: git commit (asi nos abre un archivo le ponemos un nombre en la primera l
 para borrar =  rm archivo2.html
 
 
-git rm archivo2.html   asi nos agregamos agregarlo git add archivo2.html y luego comitearlo git commit ""
+git rm archivo2.html   asi nos agregamos agregarlo git add archivo2.html y para luego comitearlo git commit ""
+
+para restaurar un archivo borrado q vuelta a stage
+git restore --staged archivo2.html   | lo regresa a stage
+
+git restore archivo2.html   | restaura el archivo
+
+
+
+mv |origen destino| es el comando para mover archivos, aunque tambien se les puede con mv cambiar el nombre
+mv archivo2.html archivo22.html    |hacemos git add a ambos y comiteamos C:
