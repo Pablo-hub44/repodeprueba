@@ -68,4 +68,7 @@ forma1: git commit -m "el primer commit"
 
 forma2: git commit (asi nos abre un archivo le ponemos un nombre en la primera linea , lo cerramos y nos hace el comit)
 
-para borrar rm archivo2.html
+para borrar =  rm archivo2.html
+
+
+git rm archivo2.html   asi nos agregamos agregarlo git add archivo2.html y luego comitearlo git commit ""
