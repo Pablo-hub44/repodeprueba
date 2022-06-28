@@ -1,0 +1,67 @@
+
+Curso rapido de git
+
+git es para la gestion de versiones
+
+usos de git
+- historial
+- almacenar codigo
+- trabajar en equipo
+- nos permite saber cuando se introdujo un error, que comit introdujo el error
+
+git bash emulara comandos de linux y mac
+
+no usar la terminal de windows, usar git bash que ya viene de la instalacion de git
+
+los comandos mas inportantes de git https://gist.github.com/dasdo/9ff71c5c0efa037441b6
+
+
+configuracion basica
+ git config --global user.name "Pablo Jose" configuramos nuestro git con nuestro nombre
+ git config --global user.email pablojose0008@gmail.com  ponemos nuestro email
+ git config --global core.editor "code --wait"  ponemos vscode como editor por defecto --wait q espere q nos salgamos
+ git config --global -e
+
+
+ core.autocrlf en windows tiene q estar en true , linux/mac el autocrlf debe esta en input
+
+ windows CR  LF
+ linux LF
+
+ git config --global core.autocrlf true | pk estamos es windows, los de mac|linux ponen input
+
+
+git config -h | nos mostrara todas las configuraciones que podemos hacer
+
+ls lista todos los archivos del directorio
+pwd nos muestra la ruta de donde estamos
+cd pa movernos entre directorios
+cd .. pa salir de un directorio
+
+mkdir para crear una nueva carpeta/directorio
+
+
+
+
+git init inicializa la repo
+
+ls -a muestra todo y archivos ocultos
+
+nos apareceras los detalles de implementacion
+
+
+-- flujo de trabajo --
+computador | stage | commit | serve
+
+git add seleccionamos los arhcivos que vamos a pasar a la etapa de stage
+git commit      commit = compromenter
+
+los archivos q commiteamos los ponemos al servidor que puede ser github o algun otro
+
+git status
+
+git add archivo2.html archivo1.html
+
+commiteamos
+
+git commit -m "el primer commit"
