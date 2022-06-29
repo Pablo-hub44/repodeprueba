@@ -16,7 +16,7 @@ no usar la terminal de windows, usar git bash que ya viene de la instalacion de 
 los comandos mas inportantes de git https://gist.github.com/dasdo/9ff71c5c0efa037441b6
 
 
-configuracion basica
+---- configuracion basica
  git config --global user.name "Pablo Jose" configuramos nuestro git con nuestro nombre
  git config --global user.email pablojose0008@gmail.com  ponemos nuestro email
  git config --global core.editor "code --wait"  ponemos vscode como editor por defecto --wait q espere q nos salgamos
@@ -32,6 +32,7 @@ configuracion basica
 
 
 git config -h | nos mostrara todas las configuraciones que podemos hacer
+-----
 
 ls lista todos los archivos del directorio
 pwd nos muestra la ruta de donde estamos
@@ -73,6 +74,7 @@ para borrar =  rm archivo2.html
 
 git rm archivo2.html   asi nos agregamos agregarlo git add archivo2.html y para luego comitearlo git commit ""
 
+-----
 para restaurar un archivo borrado q vuelta a stage
 git restore --staged archivo2.html   | lo regresa a stage
 
@@ -103,3 +105,38 @@ ejem
  M archivo1.html
  M el_git.txt
  ?? archivo3.html
+
+ aparecen en rojo cuando no estan en git add y luego de agregarlos estan en verde
+
+ -----
+
+
+ git diff
+    aparece la info un poco mas visual pero medio raro, para salir de ahi es con 'q'
+    git diff nos va a mostar todos los cambios q nosotros escribimos pero q no estan en la etapa de stage
+    nos mostraria los cambios 
+
+    git diff --staged | lo pone todo a stage
+
+
+    ----- ver el historial de todo el repositorio
+
+    git log
+    se vera quien realizo los cambios , el correo de tal , mensajes de commit
+
+    git --oneline
+    nos mostrara el nombre de todos los commits hechos
+
+
+
+    -----ramas en git o branches
+    creamos un branch y luego de hacer lo q se deba , solicitamos hacer un merge a la rama de main(la rama principal)
+
+          >---->--->
+         /
+    ----->--->--->
+
+    git branch  | para saber en que rama estamos, por defecto estamos en la rama master
+
+    para crear un a rama
+    git branch -b ramanueva
