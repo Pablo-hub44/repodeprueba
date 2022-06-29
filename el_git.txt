@@ -140,3 +140,10 @@ ejem
 
     para crear un a rama
     git branch -b ramanueva
+
+
+    cat
+    con cat nos mostrara lo q tiene tal archivo en consola
+
+    cambiando de rama simplemente ponemos el nombre de la rama
+    git checkout master
