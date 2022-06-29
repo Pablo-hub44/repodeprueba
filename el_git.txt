@@ -82,3 +82,12 @@ git restore archivo2.html   | restaura el archivo
 
 mv |origen destino| es el comando para mover archivos, aunque tambien se les puede con mv cambiar el nombre
 mv archivo2.html archivo22.html    |hacemos git add a ambos y comiteamos C:
+
+forma corta de renombrar en git
+git mv archivo22.html archivo2.html   | se agrega directamente a stage
+
+
+
+
+ignorar archivo para q no se incluyan en la repo
+por lo general se llaman .env las variables de entorno
