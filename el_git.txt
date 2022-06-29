@@ -147,7 +147,7 @@ ejem
     cat
     con cat nos mostrara lo q tiene tal archivo en consola
 
-    cambiando de rama simplemente ponemos el nombre de la rama
+    ----> cambiando de rama simplemente ponemos el nombre de la rama
     git checkout master
 
 
@@ -174,5 +174,18 @@ ejem
     -----
     y asi conforme hagamos nuestro codigo
     hacer git add
-    git commit ""
+    checamos git status
+    git commit -m ""
     y luego git push para subirlo a github :D
+------
+
+
+
+
+    en el caso q creemos una nueva rama y aun no queremos hacerle un merge a master pero
+    si queremos q este en el repositorio es 
+
+    git checkout -b ramaC
+
+    asi creara esta rama en el repositorio en github
+    git push -u origin ramaC
