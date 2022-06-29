@@ -138,8 +138,10 @@ ejem
 
     git branch  | para saber en que rama estamos, por defecto estamos en la rama master
 
-    para crear un a rama
+    --> para crear un a rama <--
     git branch -b ramanueva
+
+    git branch -M main //este tambien crea la rama pero -m la asigna como principal
 
 
     cat
@@ -147,3 +149,30 @@ ejem
 
     cambiando de rama simplemente ponemos el nombre de la rama
     git checkout master
+
+
+    ---- poner cambios
+    para traer los cambios echos cuando estabamos en la ramaB
+    tenemos que estar en la rama principal osease la 'master' en este caso , sin archivos en stage , todo comiteado
+
+    ponemos 
+    git merge ramaB
+
+
+
+    ---- subir todo a github
+    creamos la repo en github seguimos los pasos
+
+    le asignamod el origen remoto
+    git remote add origin https://github.com/Pablo-hub44/repodeprueba.git
+
+    comando para q podamos subir nuestros cambios con respecto a la rama en la que estemos trabajando
+    en github no esta creada la rama , con -u creamos la rama
+    git push -u origin master  / en github la rama de llama main yo le cree con master
+
+
+    -----
+    y asi conforme hagamos nuestro codigo
+    hacer git add
+    git commit ""
+    y luego git push para subirlo a github :D
