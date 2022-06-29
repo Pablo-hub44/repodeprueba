@@ -1,3 +1,4 @@
 # aqui es donde se ponen los archivo q se van a ignorar al hacer commit
 .env
 # node_modules/
+wenas gente

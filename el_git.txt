@@ -50,7 +50,7 @@ ls -a muestra todo y archivos ocultos
 nos apareceras los detalles de implementacion
 
 
--- flujo de trabajo --
+---- flujo de trabajo --
 computador | stage | commit | serve
 
 git add seleccionamos los arhcivos que vamos a pasar a la etapa de stage
@@ -79,6 +79,7 @@ git restore --staged archivo2.html   | lo regresa a stage
 git restore archivo2.html   | restaura el archivo
 
 
+-----
 
 mv |origen destino| es el comando para mover archivos, aunque tambien se les puede con mv cambiar el nombre
 mv archivo2.html archivo22.html    |hacemos git add a ambos y comiteamos C:
@@ -87,7 +88,18 @@ forma corta de renombrar en git
 git mv archivo22.html archivo2.html   | se agrega directamente a stage
 
 
-
-
-ignorar archivo para q no se incluyan en la repo
+-----
+.gitignore
+ahi ponemos los archivos a ignorar para q no se incluyan en la repo
 por lo general se llaman .env las variables de entorno
+
+
+
+git status -s 
+nos muestra el estatus de una forma un poco mas ordenada
+ejem
+
+ M .gitignore
+ M archivo1.html
+ M el_git.txt
+ ?? archivo3.html
