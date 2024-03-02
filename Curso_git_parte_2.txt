@@ -1,0 +1,233 @@
+------- el Stash -------
+el stash es un a boveda segura en la que podemos mover todos los cambios inclusive 
+de archivos que git todavia no le da seguimientos, aun no son stage o commits, WIP es work in progress
+    git stash
+    git stash list   para ver los stash que hay al momento
+    git stash clear  para limpiar todos los stash, ya cuando no ocupemos los stash hay que limpiarlos pk despues no sabremos|acordaremos de que era
+
+
+para tomar el ultimo stash(el codigo modificado, q se puso ahi), al comit en el que estamos
+    git stash pop
+
+para aplicar un Stash
+    git stash apply stash@{2}
+
+para borrar un stash 
+    git stash drop stash@{0}
+
+para ver informacion de un stash especifico
+    git stash show nombredelstash@{1}
+
+para ponerle un nombre descriptivo al stash (mucho mejor para saber de que trataba despues)
+    git stash save "agregamos a loki en villanos.md"
+
+ver un poco de informacion de los stashes
+    git stash list -stat
+
+
+--------- rebase -----------
+ayuda a iniciar el punto inicial de la rama
+
+git checkout rama-misiones   ir a otra rama
+git rebase master  estando en una subrama, va a crear un area temporal, va a mover el puntero de la subrama al ultimo commit de la rama principal(master)
+
+rebase interactivo
+    git rebase -i HEAD~3(tambien puede ser un hash), ~3 = 3 commit antes del head q es el ultimo
+
+USOS comunes del rebase interactivo:
+    - ordenar commits
+    - corregir mensajes de los commits
+    - unir commits 
+    - separar commits
+
+
+para unir dos commits tenemos que ir al rebase interactivo
+    git rebase -i HEAD~3    -i de interactivo
+
+    dentro del archivo cambiamos el pick por s 
+    s, squash <commit> = use commit, but meld into previous commit
+
+pa cambiar el nombre del commit o varios commits
+    r, reword <commit> = use commit, but edit the commit message
+
+si estamos en un git rebase manual tenemos que finalizarlo con  
+    git rebase --continue
+
+para separar commits te pones en ese commit y hacer el rebase
+en consola te va a la version anterior de ese comit
+ejem git reset HEAD^
+ponemos en diferentes comits esos que estaban juntos
+
+y terminamos el rebase
+    git rabase --continue
+
+
+
+------ github ,push, pull, request,etc------
+push toma los cambios pa subirlos al servidor(a github)
+
+github es una plataforma de desarrollo colaborativo de software para alojar proyectos
+
+para ver si un proyecto tiene una fuente remota -----
+    git remote -v
+
+gitosis
+es un tipo hosting para repos de git  , mas info en  https://github.com/res0nat0r/gitosis
+
+
+---- subir todo a github ----------------
+creamos la repo en github seguimos los pasos
+
+le asignamos el origen remoto
+    git remote add origin https://github.com/Pablo-hub44/repodeprueba.git
+    git remote add origin https://github.com/Pablo-hub44/curso-git-liga_justicia.git
+
+comando para q podamos subir nuestros cambios con respecto a la rama en la que estemos trabajando, push es como llevar la info 
+en github no esta creada la rama , con -u creamos la rama
+    git push -u origin master  / en github la rama se llama main yo le cree con master
+
+
+para subir los tags q teniamos a github
+    git push --tags
+
+para saber cual es el path del repositorio, a donde apunta el origin
+    git remote -v
+
+para traer(pull) los datos que estan en el origen (en este caso en github) a aca nuestro proyecto local
+    git pull    por defecto sera al origin que asignamos de origen remoto
+    git pull    origin main    especificando la rama
+    git pull --all   traiga todos los cambios y ramas , aunque git pull por defecto lo hace
+
+
+el warning - pulling without reconcile strategy
+    git config --global pull.ff only  ff= es fast foward
+
+    git config --global pull.ff     false desactivamos el ff , para activarlo lo cambiamos a true
+
+    git config --global -e  //para ver la configuracion q hicimos
+
+
+
+clonacion de repositorios , importante
+ponemos en la ubicacion donde queremos que se descarge el proyecto|carpeta
+    git clone https://github.com/Pablo-hub44/curso-git-liga_justicia.git    , el link de github
+
+para subir(push) cambios echos en local a github, (ya agregados y comiteados ovbiamente)
+    git push   que por defecto ira al que le pusimo de origin
+
+
+por si hay conflicto entre local y github , i think
+git pull rebase
+    git config pull.rebase true  hace configuracion
+    git config --global pull.rebase true  lo ponemos de forma global
+
+
+ejem 
+hicimos un git pull y habiamos echo cambios comiteado en github y en local
+hubo conflicto y decimos que poner o dejar y 
+para terminarlo ponemos   git rebase --continue
+
+
+Nota: casi nunca tenemos que estar trabajando sobre la rama main, si no en otras ramas
+o en features branches para que se implementen las nuevas caracteristicas, y cuando ya este lista
+unificarla al main
+
+
+------ pull request -------------
+pull request es para hacer cambios a un repositorio que no nos pertenece
+pull request es una rama que se desprendio en cierto punto en el tiempode la rama principal y luego unirla a la 
+rama principal con un pull request(creo q es como pedir subir cambios )
+y nos sirva para hacer un analisis previo al merge
+
+raw es para ver el archivo en crudo , ejemp en sintaxis md mark down
+blame es para culpar quien hizo que cosa
+
+https://github.com/Pablo-hub44/curso-git-liga_justicia/blob/632e215ef050669321e51649a2bb357ee00c63a7/villanos.md
+
+
+----- git fetch ----
+git fetch para actualizar los repos locales, los commit, etc, que han pasado en el servidor(github) ocupamos git fetch
+y luego git pull, para traer los cambios | NO era necesario este
+
+hicimos git pull y no me unio el head->main y el origin/main, use
+git push origin HEAD:main , pa subir los cambio a github me unio pero el ultimo comit q no era pero bueno estan unidas
+
+
+
+---- hacer comentarios , mensajes al commit , en github----
+-- checar que no halla nada pendiente 
+git pull
+git fetch
+
+
+fork es como tambien clonar completamente el reporitorio
+
+ejem traer los cambios que esta haciendo un compañero en su rama al parecer
+se puede agregar repositorios tantos como queramos
+    git remote add upstream <repo original>    / upstream es como el origin
+    git fetch <repo>
+
+
+
+----- flujos de trabajo ------
+feature branch
+para revisar el trabajo de otros compañeros 
+    git fetch
+pa revisar todas las ramas q se encuentran enel repositorio
+    git branch -a
+para pasarnos a la rama del compañero
+    git checkout rama-capitan
+
+si se trabaja asi cualquier compañero puede ralizar el push a github para q el repo este actualizado
+
+vamos a la rama principal
+    git checkout master
+rama que queremos unir al master, si hubiera algun conflicto se resuelve en ese momento
+    git merge rama-capitan
+para actualizar nuestro repo en github
+    git push
+
+
+otra forma utilizando los pull request
+    git push origin rama-silver
+    pull request
+
+
+
+------
+1 hacemos git init , git add todo, y git commit
+2. subimos a github
+    git remote add origin https://github.com/Pablo-hub44/11_avengers.git
+    git branch -M main
+    git push -u origin main
+------
+
+
+
+-------------  ramas parte 2 -------------
+
+para subir una rama echa en local a github
+    git push --set-upstream origin nueva-rama
+
+para borrar una rama , ejem la rama q ya se unio con pull request y ya lo la ocupamos q aparece en local
+, si no se ha unido a la rama principal , nos preguntara si si queremos borrar la rama
+    git branch -d la-rama
+
+
+limpiar ramas que ya no son necesarias en local
+     git push origin :rama-misiones |no funciona, borraria la rama borrada en local , borrara la rama en romoto en github
+
+     git remote prune origin   va a revisar las ramas que en el remoto no existen y actualizar las referencias aca en local de git branch -all
+
+
+rama de produccion github
+    - cuando le damos soporte prolongado a una version en particular
+    - arreglos en caliente y urgentes
+    - cuando subimos a produccion, pero constantemente tenemos que star dando soporte y arreglos cadabes qu hay un nuevo despliegue de la aplicacion
+
+    - si se borrara la rama pero tenia tag , no info no estaria borrada, lo buscamos en gir reflog
+
+
+los colaboradores son personas que tienen acceso de escritura lectura, de administracion del repositorio
+milestone es un into
+los issues es como una pregunta

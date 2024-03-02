@@ -1,0 +1,316 @@
+
+Curso rapido de git
+
+git es para la gestion de versiones
+
+usos de git
+- historial
+- almacenar codigo
+- trabajar en equipo
+- nos permite saber cuando se introdujo un error, que comit introdujo el error
+
+git bash emulara comandos de linux y mac
+
+no usar la terminal de windows, usar git bash que ya viene de la instalacion de git
+
+los comandos mas inportantes de git https://gist.github.com/dasdo/9ff71c5c0efa037441b6
+
+
+---- configuracion basica ------
+ git config --global user.name "Pablo Jose" configuramos nuestro git con nuestro nombre
+ git config --global user.email pablojose0008@gmail.com  ponemos nuestro email
+ git config --global core.editor "code --wait"  ponemos vscode como editor por defecto --wait q espere q nos salgamos
+ git config --global -e
+
+
+ core.autocrlf en windows tiene q estar en true , linux/mac el autocrlf debe esta en input
+
+ windows CR  LF
+ linux LF
+
+ git config --global core.autocrlf true | pk estamos es windows, los de mac|linux ponen input
+ git --version
+ git help
+
+
+git config -h | nos mostrara todas las configuraciones que podemos hacer
+-----
+
+ls lista todos los archivos del directorio
+pwd nos muestra la ruta de donde estamos
+cd pa movernos entre directorios
+cd .. pa salir de un directorio
+
+mkdir para crear una nueva carpeta/directorio
+
+
+
+
+git init inicializa la repo
+
+ls -a muestra todo y archivos ocultos
+
+nos apareceras los detalles de implementacion
+
+
+---- flujo de trabajo --
+computador | stage | commit | serve
+
+git add seleccionamos los archivos que vamos a pasar a la etapa de stage
+    git commit      commit = compromenter
+    git commit .  va a comitear todos
+
+los archivos q commiteamos los ponemos al servidor que puede ser github o algun otro
+
+    git status
+
+    git add archivo2.html archivo1.html
+
+para agregar archivos con una extension en especifico muy utiles
+    git add *.html
+    git add css/  todo lo q este adentro de una carpeta
+
+para agregar archivos dentro de un directorio|carpeta 
+    git add js/*.js
+
+archivo .gitkeep
+    este es un archiv que decimos que mantenga tal carpeta, a pesar q tal carpeta no tenga archivos la reconosca
+
+para ver todos los commits echos hasta ahora -muy utiles
+    git log
+    git log --oneline forma resumida
+    git log --oneline --decorate --all --graph pa ver realacion entre ramas  , los -- son banderas
+    
+    git status -s 
+nos muestra el estatus de una forma un poco mas ordenada
+ejem
+
+ M .gitignore
+ M archivo1.html
+ M el_git.txt
+ ?? archivo3.html
+
+ aparecen en rojo cuando no estan en git add y luego de agregarlos estan en verde
+--commiteamos--
+
+forma1: git commit -m "el primer commit"
+
+forma2: git commit (asi nos abre un archivo le ponemos un nombre en la primera linea , lo cerramos y nos hace el comit)
+
+
+-----
+para restaurar un archivo borrado q vuelta a stage
+    git restore --staged archivo2.html   | recupera archivo borrado y lo regresa a stage
+    git restore archivo2.html   | y luego para recuperarlo como tal, restaura el archivo
+
+
+
+para irnos a una version anterior reconstruye a como estaba el ultimo commit :OOO
+    git checkout -- .  //todo a como estaba el commit anterior
+    git checkout -- nombreArchivo.md //poner la version anterior de solo UN archivo.
+
+    git commit -am "comiteamos" //version resumida y git add y git commit junto
+
+para editar el nombre del ultimo commit echo 
+    git commit --amend -m "notas añadidas a las instalaciones"
+    git commit --amend  asi solo abre un pre archivo para editar el name del commit mas visual
+
+    git reset --soft HEAD^ mantiene todos los cambios, head apunta el ultimo commit, el ^ indica el ultimo commit antes del ese, y asi ^2 o ^3 etc y asi ir al commit que queramos
+    git reset --soft e9a46dd tambien podemos movernos por su num de hash a como estaba en ese commit
+    git reset --hard borra el commit, a como estaba en tal punto , , ejem git reset --hard aefb10e
+    git reset --mixed , igual mantiene cambios pero sace del stage y todo para volverlo a poner , parecido al soft
+
+para regresar a un punto 
+    git reflog  podemos ver la historia de los commits borrados o no borrados <----------------#########################
+    git reset --hard aeebfe5 el primer commit osea borro todo xd
+    git reset --hard 03229a8 vamos al ultimo commit donde esta todo asi recuperamo todo :D
+    git reset --hard es como un git checkout -- .
+
+    nota: el main o master deben tener los commits definitivos y las cosas q se estan desarrollando en una subrama
+-----------
+
+------ crear alias para los comandos, --
+que son simplemente comandos largos que ponemos en un comando corto
+los alias son globales y funcionaran en cualquier otro proyecto 
+    git status --short
+
+    git config --global alias.s "status --short" //s sera el alias del comando status --short
+
+para editar un alias
+    git config --global -e   tocamos la tecla a pa editar
+
+alias util de log
+    git config --global alias.lg "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+
+    git status -sb  s short b branch   | alias ya creado
+    
+-----
+
+mv |origen destino| es el comando para mover archivos, aunque tambien se les puede con mv cambiar el nombre
+    mv archivo2.html archivo22.html    |hacemos git add a ambos y comiteamos C:
+
+forma corta de renombrar en git
+    git mv archivo22.html archivo2.html   | se agrega directamente a stage
+
+para borrar =  rm archivo2.html
+forma 2 para quitar archivo del commit
+    git reset archivo
+
+    git rm archivo2.html   asi nos agregamos agregarlo git add archivo2.html y para luego comitearlo git commit ""
+
+
+-----
+.gitignore
+ahi ponemos los archivos a ignorar para q no se incluyan en la repo, no se les de seguimientos a esos archivos
+por lo general se llaman .env las variables de entorno
+
+
+
+
+
+ -----
+
+
+ git diff
+    aparece la info un poco mas visual pero medio raro, para salir de ahi es con 'q'
+    git diff  - nos va a mostar todos los cambios q nosotros escribimos pero q no estan en la etapa de stage
+                nos mostraria los cambios 
+
+    git diff --staged | lo pone todo a stage
+
+
+----- ver el historial de todo el repositorio ----
+
+    git log
+    se vera quien realizo los cambios , el correo de tal , mensajes de commit
+
+    git --oneline
+                    nos mostrara el nombre de todos los commits hechos
+
+
+
+-----ramas en git o branches -----------
+    es una linea de tiempo de commits
+    merge son uniones,
+    tipos de merge
+        fast-forward: se dispara cuando git no detecta ningun cambio y los cambios pueden ser reintegrado como si no nos hubieramos separado de la rama
+        uniones automaticas: se une con aiuda de git
+        uniones manuales: nosotros tenemos que checar y se hara el merge commit
+
+    creamos un branch y luego de hacer lo q se deba , solicitamos hacer un merge a la rama de main(la rama principal)
+
+          >---->--->------->------>
+         /                          \
+    ----->--->--->-------->---------->----->
+
+        git branch  | para saber en que rama estamos, por defecto estamos en la rama master
+
+        git branch -m master main  cambiamos el nombre de la rama de master a main
+
+--> para crear una rama <--
+        git branch nombreRama  crea simplemente una nueva rama
+
+        git branch -b ramanueva
+
+        git branch -M main //este tambien crea la rama pero -m la asigna como principal
+
+        git commit -am "nuevo comit" - version resumida de git add y git commit , solo funciona si se le esta dando seguimiento a tal archivo
+
+        git log - para ver los logs del repositorio
+
+        git checkout -b nombreRama  crea la rama y tambien nos redirige a ella , muy usado
+
+        git branch --all    ver todas las ramas y las que no estan , traidas del github - git pull
+        git checkout rama-misiones   nos movemos a la rama tal de nuestro 'compañero'
+
+    cat
+    con cat nos mostrara lo q tiene tal archivo en consola
+
+----> cambiando de rama simplemente ponemos el nombre de la rama
+    git checkout master
+
+
+---- poner cambios en la rama principal
+para traer los cambios echos cuando estabamos en la ramaB
+tenemos que estar en la rama principal osease la 'master' en este caso , sin archivos en stage , todo comiteado
+TENEMOS QUE ESTAR EN LA RAMA EN LA QUE SE LE IMPLEMENTARAN LO DE LAS OTRAS SUBRAMAS
+
+ejem ponemos 
+    git merge ramaB
+
+si ya no ocupamos una rama la ponemos borrar   -d es delete -f forzar borrado
+    git branch -d nombreRama
+
+
+---- los tags - etiquetas ---- super util para marcar un punto en el tiempo
+son una referencia a un commit especifico y a todo el estado del proyecto en ese punto especifico de tiempo
+se puede hacer tags tambien para movernos en el tiempo, se guardara en el commit tal
+    git tag super-release  
+    git tag -a   a de anottate anotar info
+    git tag -a v1.0.0 -m "Version 1.0.0 lista"          1. significa cambios importantes, .0. se realizo un a nueva implementacion de algo, .0 se soluciono algun bug
+
+quitar un tag 
+    git tag -d super-release
+
+agregar un tag a un commit ya echo con su hash, ejem
+    git tag -a v0.1.0 f3e3cce -m "version alpha"
+
+ver informacion de un tag especifico
+    git show v0.1.0
+
+para subir los tags q teniamos a github
+    git push --tags
+
+---- subir todo a github ----------------
+creamos la repo en github seguimos los pasos
+
+le asignamod el origen remoto
+git remote add origin https://github.com/Pablo-hub44/repodeprueba.git
+
+comando para q podamos subir nuestros cambios con respecto a la rama en la que estemos trabajando
+en github no esta creada la rama , con -u creamos la rama
+git push -u origin master  / en github la rama se llama main yo le cree con master
+
+
+    -----
+y asi conforme hagamos nuestro codigo
+hacer git add
+checamos git status
+git commit -m ""
+y luego git push para subirlo a github :D
+------
+
+
+
+
+en el caso q creemos una nueva rama y aun no queremos hacerle un merge a master pero
+si queremos q este en el repositorio es 
+
+    git checkout -b ramaC
+
+    asi creara esta rama en el repositorio en github
+    git push -u origin ramaC
+
+
+
+
+    r rename
+    u unstracked archivo no 'repositado'  aun no le esta haciendo seguimiento
+
+
+-----
+para revertir cambios de un archivo a un commit anterior por su hash
+ejem estamos en un commit donde no hay un dato en un archivo que borramos
+1. checamos git lg
+2. vemos el hash del datos antes de que lo barraramos
+3. nos vamos a ahi de solo ese archivo 
+    git checkout 54b33fa miembre.md
+    y ya lo tenemos de vuelta
+4.hacemos un nuevo git commit am "cambios revertidos"
+5. subimos a github
+    git push
+
+
+
+comando para cuando estemos en otra computadora , y diga que no somos tal id
+ponemos: git config --global safe.directory '*'

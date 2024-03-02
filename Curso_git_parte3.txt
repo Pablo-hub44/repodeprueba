@@ -1,0 +1,58 @@
+------  github issues   ---------
+son para marcar preguntas o preguntarle a la gente q administra el repositorio 
+
+podemos comitear para un arreglo de un issue 
+git add .
+git commit -am "Fixes #4: hecho wisp borrado"
+
+
+---- etiquetas ---- en github issues son los labels
+
+----- los milestones en github ----
+es un agrupador de issues en un proyecto, muy usado para marcar una beta
+
+
+--- wikis, proyectos y github pages---
+
+pages para crear un sitio web y desplegarlo en github
+los proyectos
+    los proyectos general del repositorio 
+    el proyecto macro un proyecto de equipo
+    el proyecto macro de organizacion
+
+
+----- wiki ------
+para crear la documentacion del repositorio
+
+------  proyecto --------
+es algo para darle seguimiento al proyecto, una gran pizarra en blanco para poner las 
+tareas pendientes, etc
+
+---- github pages ---
+es un hosting gratuito para html css y javascript
+para sitios web estaticos y algunos dinamicos
+
+la carpeta docs es la que se desplegaria de manera generalizada es asi
+
+ahi podemos subir nuestro repo de forma gratuita en 
+nuestro repo setting pages y asignamos la rama y la carpeta muy coool
+
+pero tiene limitaciones tienen que ser estaticos sin bases de datos 
+pero al parecer si se puede con peticiones http , cool aplicacion desplegada y hosting
+
+
+
+------  organizaciones --------
+diferentes equipos que tengan mini equipos , para que este bien agrupado y organizado
+una organizacion es un grupo de persona que trabajan con un fin en comun
+
+-----  teams ----- euqipos de trabajo
+
+-- repositorios y privilegios a los equipos de nuestra organizacion
+el nivel de permisos del repositorio dentro del equipo mas usados es read, write y admin
+
+---- github gist -----
+muuuy bueno puedes guardar pedasos de codigo osease, metodos de algo, oo encontrar metodos que necesites 
+usos:
+    - compartir codigo con otras personas
+    - para poner bloques de codigo
