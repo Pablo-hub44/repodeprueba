@@ -41,7 +41,9 @@ USOS comunes del rebase interactivo:
     - separar commits
 
 
-para unir dos commits tenemos que ir al rebase interactivo
+para unir dos commits tenemos que ir al rebase interactivo, ahi aparecen
+varios datos comentados, en la primera linea es lo que tienes que poner q vas a cambiar, si squas, reword, etc, guardas y cierras y se abre otro archivo y ahi se realiza la modificacion ejem ej reword es asi , guardas y listo se aplicacion
+
     git rebase -i HEAD~3    -i de interactivo
 
     dentro del archivo cambiamos el pick por s 
@@ -94,9 +96,9 @@ para saber cual es el path del repositorio, a donde apunta el origin
     git remote -v
 
 para traer(pull) los datos que estan en el origen (en este caso en github) a aca nuestro proyecto local
-    git pull    por defecto sera al origin que asignamos de origen remoto
-    git pull    origin main    especificando la rama
-    git pull --all   traiga todos los cambios y ramas , aunque git pull por defecto lo hace
+    git pull                por defecto sera al origin que asignamos de origen remoto
+    git pull origin main    especificando la rama
+    git pull --all          traiga todos los cambios y ramas , aunque git pull por defecto lo hace
 
 
 el warning - pulling without reconcile strategy
