@@ -46,7 +46,7 @@ pero al parecer si se puede con peticiones http , cool aplicacion desplegada y h
 diferentes equipos que tengan mini equipos , para que este bien agrupado y organizado
 una organizacion es un grupo de persona que trabajan con un fin en comun
 
------  teams ----- euqipos de trabajo
+-----  teams ----- equipos de trabajo
 
 -- repositorios y privilegios a los equipos de nuestra organizacion
 el nivel de permisos del repositorio dentro del equipo mas usados es read, write y admin

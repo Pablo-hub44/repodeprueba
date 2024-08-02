@@ -197,7 +197,7 @@ otra forma utilizando los pull request
 
 
 ------
-1 hacemos git init , git add todo, y git commit
+1 hacemos git init , git add todo, y git commit -m ""
 2. subimos a github
     git remote add origin https://github.com/Pablo-hub44/11_avengers.git
     git branch -M main
