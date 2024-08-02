@@ -56,3 +56,36 @@ muuuy bueno puedes guardar pedasos de codigo osease, metodos de algo, oo encontr
 usos:
     - compartir codigo con otras personas
     - para poner bloques de codigo
+
+
+Bisect
+    git bisect start: Inicia una búsqueda binaria para encontrar el commit que introdujo un bug.
+
+    git bisect bad: Marca el estado actual como malo (bug presente).
+
+    git bisect good <commit>: Marca un commit específico como bueno (sin bug).
+    
+    git bisect reset: Finaliza la búsqueda binaria.
+
+Cherry-pick
+    git cherry-pick <commit>: Aplica el cambio introducido por un commit específico a la rama actual.
+
+Manipulación Avanzada de Ramas
+
+Branch Management
+    git branch -d <rama>: Elimina una rama que ya ha sido fusionada.
+
+    git branch -D <rama>: Elimina una rama forzosamente, sin importar si ha sido fusionada o no.
+
+    git push <remoto> --delete <rama>: Elimina una rama remota.
+    
+Tracking Branches
+    
+    git branch --set-upstream-to=<remoto>/<rama>: Establece la rama remota de seguimiento para la rama actual.
+
+Log Avanzado  - esta mejor el git lg jeje
+    git log --oneline: Muestra el historial de commits en una sola línea por commit.
+
+    git log --graph --decorate --oneline: Muestra un historial de commits en forma de gráfico.
+
+    git log --stat: Muestra el historial de commits con estadísticas de los cambios.
