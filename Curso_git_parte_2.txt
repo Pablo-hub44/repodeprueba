@@ -122,6 +122,10 @@ por si hay conflicto entre local y github , i think
 git pull rebase
     git config pull.rebase true  hace configuracion
     git config --global pull.rebase true  lo ponemos de forma global
+	
+git pull --rebase
+	Este comando permite que tu historial local se actualice con los cambios de la rama remota 
+	al reordenar tus commits locales sobre los nuevos cambios remotos, evitando la creación de un merge adicional.
 
 
 ejem 
@@ -154,7 +158,7 @@ y luego git pull, para traer los cambios | NO era necesario este
 hicimos git pull y no me unio el head->main y el origin/main, use
 git push origin HEAD:main , pa subir los cambio a github me unio pero el ultimo comit q no era pero bueno estan unidas
 
-
+git fetch --all ver si hay cambios por bajar en todas las ramas
 
 ---- hacer comentarios , mensajes al commit , en github----
 -- checar que no halla nada pendiente 
